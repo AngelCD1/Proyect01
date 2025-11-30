@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario Pro - Sistema de Caja y Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Firebase FIRST -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            updateDoc, 
+            deleteDoc, 
+            doc, 
+            onSnapshot,
+            serverTimestamp 
+        } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+        import { 
+            getAuth, 
+            signInWithEmailAndPassword, 
+            createUserWithEmailAndPassword, 
+            signOut, 
+            onAuthStateChanged 
+        } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBDdBKLSlF3s9k2j-2iobMRJAJGhZ9-kmM",
+            authDomain: "gestion-de-inventario-4a3d2.firebaseapp.com",
+            projectId: "gestion-de-inventario-4a3d2",
+            storageBucket: "gestion-de-inventario-4a3d2.firebasestorage.app",
+            messagingSenderId: "91946579758",
+            appId: "1:91946579758:web:6a5ce0c3315363e0e1ecbf",
+            measurementId: "G-Z0X2LNFRS8"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        
+        // Exportar todo globalmente
+        window.firebaseApp = app;
+        window.firebaseDb = db;
+        window.firebaseAuth = auth;
+        window.firebaseFirestore = {
+            collection, 
+            addDoc, 
+            updateDoc, 
+            deleteDoc, 
+            doc, 
+            onSnapshot,
+            serverTimestamp
+        };
+        window.firebaseAuthFunctions = {
+            signInWithEmailAndPassword, 
+            createUserWithEmailAndPassword, 
+            signOut, 
+            onAuthStateChanged
+        };
+
+        console.log('✅ Firebase configurado correctamente');
+        console.log('📊 Firestore functions disponibles:', Object.keys(window.firebaseFirestore));
+    </script>
+
+    <!-- Luego las demás librerías -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Inicializar EmailJS -->
+    <script>
+        // Inicializar EmailJS (reemplaza con tu Public Key)
+        (function() {
+            emailjs.init({
+                publicKey: "PRrUpbqoncDf1cu03",
+                blockHeadless: true,
+                limitRate: {
+                    id: 'app',
+                    throttle: 10000 // 10 segundos entre emails
+                }
+            });
+            console.log('✅ EmailJS inicializado');
+        })();
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>

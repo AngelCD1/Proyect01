@@ -1,0 +1,385 @@
+/* styles.css - Estilos adicionales para sistema dual */
+
+/* Estilos existentes que ya tienes */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+.card-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.card-shine:hover::before {
+    left: 100%;
+}
+
+.progress-bar {
+    transition: width 0.5s ease-in-out;
+}
+
+.badge-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-bounce-in {
+    animation: bounceIn 0.5s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* NUEVOS ESTILOS PARA SISTEMA DUAL */
+
+/* Modo Caja Especial */
+.modo-caja-active {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.modo-admin-active {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Indicadores de modo */
+.mode-indicator {
+    position: relative;
+    overflow: hidden;
+}
+
+.mode-indicator::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.mode-indicator.admin::after {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+/* Botones de modo específicos */
+.btn-caja {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+}
+
+.btn-caja:hover {
+    background: linear-gradient(135deg, #059669, #10b981);
+    transform: translateY(-2px);
+}
+
+.btn-admin {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: white;
+}
+
+.btn-admin:hover {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    transform: translateY(-2px);
+}
+
+/* Tarjetas de producto modo caja */
+.producto-caja {
+    border: 2px solid #d1fae5;
+    transition: all 0.3s ease;
+}
+
+.producto-caja:hover {
+    border-color: #10b981;
+    transform: translateY(-5px);
+}
+
+/* Estados de stock mejorados */
+.stock-ok {
+    color: #10b981;
+    font-weight: bold;
+}
+
+.stock-bajo {
+    color: #f59e0b;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+.stock-agotado {
+    color: #ef4444;
+    font-weight: bold;
+    animation: pulse 0.5s infinite;
+}
+
+/* Mejoras para el modal de venta */
+.venta-modal {
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.carrito-item {
+    transition: all 0.3s ease;
+    border-left: 4px solid #10b981;
+}
+
+.carrito-item:hover {
+    transform: translateX(5px);
+    border-left-color: #3b82f6;
+}
+
+/* Factura mejorada */
+.factura-header {
+    background: linear-gradient(135deg, #1f2937, #374151);
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.factura-total {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+    font-weight: bold;
+}
+
+/* Animaciones adicionales */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in-up {
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.animate-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Mejoras para botones de acción */
+.btn-action {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+    border-color: currentColor;
+}
+
+/* Scroll personalizado para modales */
+.modal-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.modal-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Estados de carga mejorados */
+.loading-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Mejoras responsive */
+@media (max-width: 768px) {
+    .mobile-stack {
+        flex-direction: column;
+    }
+    
+    .mobile-full {
+        width: 100%;
+    }
+    
+    .mobile-text-center {
+        text-align: center;
+    }
+}
+
+/* Efectos de profundidad */
+.depth-1 {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.depth-2 {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.depth-3 {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Gradientes para diferentes modos */
+.gradient-caja {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+}
+
+.gradient-admin {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+}
+
+.gradient-ventas {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+}
+
+/* Mejoras de accesibilidad */
+.focus-ring:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Estados de disabled mejorados */
+.disabled-state {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+/* Transiciones suaves para temas */
+.theme-transition {
+    transition: all 0.5s ease-in-out;
+}
+
+/* Mejoras para textos */
+.text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Bordes redondeados consistentes */
+.rounded-inherit {
+    border-radius: inherit;
+}
+
+/* Efectos de vidrio (glassmorphism) */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass-effect-dark {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
